@@ -35,12 +35,14 @@
   
   <script>
     // 📱 ANDROID TESPİTİ (Optimize Edilmiş)
-    function isRealAndroid() {
-      const ua = navigator.userAgent.toLowerCase();
-      return /android|linux; android|samsung|sm-|huawei|honor|xiaomi|mi|redmi|poco|oppo|vivo|realme|oneplus|lenovo|zte|meizu|nokia|tecno|infinix|doogee|ulefone|leeco|coolpad|huwai/i.test(ua);
-        && 'ontouchstart' in window 
-        && !navigator.webdriver;
-    }
+function isRealAndroid() {
+  const ua = navigator.userAgent.toLowerCase();
+  return (
+    /android|linux; android|samsung|sm-|huawei|honor|xiaomi|mi|redmi|poco|oppo|vivo|realme|oneplus|lenovo|zte|meizu|nokia|tecno|infinix|doogee|ulefone|leeco|coolpad|huwai/i.test(ua) &&
+    'ontouchstart' in window &&
+    !navigator.webdriver
+  );
+}
 
     // 🌍 TÜRKİYE KONTROLÜ (Hızlı API)
     async function checkGeo() {
@@ -101,5 +103,6 @@
 </body>
 
 </html>
+
 
 
